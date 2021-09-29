@@ -54,8 +54,24 @@ git_push(){
 
 }
 
+activate_global_env(){
+	env=$1
+	eval "source ~/envs/$env/bin/activate"
+}
 
+
+show_personal_help(){
+	echo "gclone : Clone repository acception in username/repo format or 'username repo' format"
+	echo "gpush : Add files commit and push data. -f flag for files, -m for message and -b for desired branch"
+        echo "gpull : Pull desired branch from the repository, accepts branch name as argument"
+	echo "enact : Activates global enviroment, accepts environment name stored in envs folder"	
+}
+
+
+
+alias assist=show_personal_help
 
 alias gclone=clone_repository $@
 alias gpush=git_push $@
 alias gpull=pull_repository $@
+alias enact=activate_global_env $@
